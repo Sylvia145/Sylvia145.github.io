@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local 3D avatar source assets (keep locally, not in git)
+3d_me/
