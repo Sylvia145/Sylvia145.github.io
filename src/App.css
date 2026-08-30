@@ -11,4 +11,5 @@ main { overflow: hidden; position: relative; padding: 24px clamp(18px, 5vw, 82px
 /* Fade the source image edges so the avatar sits naturally in the pastel halo. */
 .avatar-wrap img { -webkit-mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); }
 .avatar-wrap picture, .avatar-video { display: block; width: 100%; height: 100%; }
-.avatar-video { object-fit: contain; object-position: bottom center; -webkit-mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); }
+.avatar-video { object-fit: contain; object-position: bottom center; opacity: 0; background: transparent; transition: opacity .18s ease-out; -webkit-mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); mask-image: radial-gradient(ellipse 49% 51% at 50% 47%, #000 66%, transparent 100%); }
+.avatar-video.is-ready { opacity: 1; }
