@@ -894,6 +894,58 @@ main {
     }
 }
 
+/* One shared coordinate system keeps the bubble, media, and hit area concentric. */
+.avatar-orbit {
+    position: absolute;
+    width: min(520px, 83%);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.avatar-orbit .avatar-halo {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: none;
+}
+
+.avatar-orbit .avatar-wrap {
+    inset: 0;
+}
+
+.avatar-orbit .avatar-hit-area {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: none;
+}
+
+/* Match the previous 90% visual density at the browser's default 100% zoom. */
+@media (min-width: 821px) {
+    main {
+        padding-left: clamp(16px, 4.2vw, 68px);
+        padding-right: clamp(16px, 4.2vw, 68px);
+    }
+
+    .hero {
+        gap: clamp(18px, 3vw, 48px);
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(76px, 8.4vw, 142px);
+    }
+
+    .avatar-orbit {
+        width: min(500px, 80%);
+    }
+}
+
 /* Keep the hover interaction scoped to the circular avatar bubble. */
 .avatar-halo {
     z-index: 1;
