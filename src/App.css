@@ -962,6 +962,10 @@ main {
         font-size: clamp(76px, 8.4vw, 142px);
     }
 
+    .hero-copy {
+        transform: translateX(28px);
+    }
+
     .avatar-orbit {
         width: min(500px, 80%);
     }
