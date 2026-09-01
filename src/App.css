@@ -993,6 +993,9 @@ main {
 
     .hero {
         gap: clamp(18px, 3vw, 48px);
+        /* Bring the whole first screen closer to the floating navigation. */
+        transform: translateY(-52px);
+        margin-bottom: -52px;
     }
 
     .hero-copy h1 {
