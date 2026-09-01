@@ -894,6 +894,25 @@ main {
     }
 }
 
+/* Keep every avatar layer on the same square coordinate system. */
+.avatar-orbit .avatar-wrap {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.avatar-orbit .avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
+}
+
+.avatar-orbit .avatar-final {
+    transform: none;
+}
+
 /* One shared coordinate system keeps the bubble, media, and hit area concentric. */
 .avatar-orbit {
     position: absolute;
