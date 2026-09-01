@@ -922,6 +922,15 @@ main {
 .project-body ul li::marker { content: ''; }
 .project-body ul li svg { flex: 0 0 auto; margin-top: 4px; color: #e96f9d; }
 
+.aigc-video {
+    display: block;
+    width: 100%;
+    min-height: 205px;
+    border-radius: 20px;
+    background: #29242a;
+    object-fit: cover;
+}
+
 /* Keep every avatar layer on the same square coordinate system. */
 .avatar-orbit .avatar-wrap {
     height: 100%;
