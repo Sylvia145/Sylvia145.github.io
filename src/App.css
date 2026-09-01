@@ -963,7 +963,8 @@ main {
     }
 
     .hero-copy {
-        transform: translateX(28px);
+        margin-left: clamp(32px, 3vw, 56px);
+        transform: none;
     }
 
     .avatar-orbit {
