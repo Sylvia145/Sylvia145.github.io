@@ -25,3 +25,6 @@ dist-ssr
 
 # Local 3D avatar source assets (keep locally, not in git)
 3d_me/
+
+# Local source media (raw video/image assets, keep locally)
+sources/
