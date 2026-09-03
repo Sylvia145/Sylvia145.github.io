@@ -924,7 +924,7 @@ main {
 .carousel-caption {
     position: absolute;
     z-index: 2;
-    top: 14px;
+    bottom: 14px;
     left: 14px;
     display: flex;
     align-items: center;
@@ -959,7 +959,7 @@ main {
 .carousel-dots {
     position: absolute;
     z-index: 3;
-    top: 20px;
+    bottom: 20px;
     right: 16px;
     display: flex;
     gap: 6px;
@@ -989,7 +989,7 @@ main {
 @media (max-width: 540px) {
     .carousel-caption {
         left: 12px;
-        top: 12px;
+        bottom: 12px;
         padding: 8px 10px;
     }
 
@@ -999,7 +999,7 @@ main {
 
     .carousel-dots {
         right: 12px;
-        top: 17px;
+        bottom: 15px;
     }
 }
 
