@@ -971,14 +971,14 @@ main {
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, .62);
+    background: rgba(19, 18, 23, .58);
     cursor: pointer;
     transition: width .2s ease, background .2s ease;
 }
 
 .carousel-dots button.is-active {
     width: 20px;
-    background: #65f1d8;
+    background: #151319;
 }
 
 .carousel-dots button:focus-visible {
