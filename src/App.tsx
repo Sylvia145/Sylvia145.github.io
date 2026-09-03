@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Check, Code2, Mail, Menu, ShieldCheck, Sparkles, Terminal, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Check, Code2, Mail, Menu, Sparkles, Terminal, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { site } from './site'
 import './App.css'
@@ -50,12 +50,29 @@ function App() {
 
 function ProjectCard({ project, index }: { project: Project, index: number }) {
   return <motion.article className={`project-card project-${index + 1}`} {...fadeUp}>
-    <div className="project-visual" aria-label={`${project.title} 项目预览`}>{project.image ? <><img src={project.image} alt="Moka 终端界面预览" loading="lazy" /><span className="project-visual-meta"><Terminal size={14} /> {project.visualLabel}</span></> : <GraphVisual />}</div>
+    <div className="project-visual" aria-label={`${project.title} 项目预览`}>{'previewSlides' in project ? <ProductPreviewCarousel slides={project.previewSlides} /> : project.image ? <><img src={project.image} alt="Moka 终端界面预览" loading="lazy" /><span className="project-visual-meta"><Terminal size={14} /> {project.visualLabel}</span></> : null}</div>
     <div className="project-body"><p className="project-number">0{index + 1}</p><h3>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p><ul>{project.highlights.map((item) => <li key={item}><Check size={14} />{item}</li>)}</ul><div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a className="project-link" href={project.href} target="_blank" rel="noreferrer">View on GitHub <ArrowUpRight size={17} /></a></div>
   </motion.article>
 }
 
-function GraphVisual() { return <div className="graph-visual"><div className="graph-label">LIVE / EVIDENCE FLOW</div><div className="graph-lines"><i /><i /><i /><i /><i /></div><div className="graph-node node-a">query</div><div className="graph-node node-b">graph</div><div className="graph-node node-c">proof</div><div className="graph-status"><ShieldCheck size={16} /> sources<br /><strong>required</strong></div></div> }
+function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, label: string, caption: string, alt: string }[] }) {
+  const reduceMotion = useReducedMotion()
+  const [activeSlide, setActiveSlide] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (reduceMotion || paused) return
+    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % slides.length), 3500)
+    return () => window.clearInterval(timer)
+  }, [paused, reduceMotion, slides.length])
+
+  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false) }}>
+    {slides.map((slide, index) => <img className={index === activeSlide ? 'carousel-image is-active' : 'carousel-image'} src={slide.src} alt={slide.alt} key={slide.src} />)}
+    <div className="carousel-caption"><span>{String(activeSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span><strong>{slides[activeSlide].label}</strong><p>{slides[activeSlide].caption}</p></div>
+    <div className="carousel-dots" aria-label="切换产品截图">{slides.map((slide, index) => <button className={index === activeSlide ? 'is-active' : ''} type="button" onClick={() => setActiveSlide(index)} aria-label={`显示：${slide.label}`} aria-pressed={index === activeSlide} key={slide.src} />)}</div>
+  </div>
+}
+
 function Contact() { return <motion.section className="contact" id="contact" {...fadeUp}><p className="section-index">04 / LET&apos;S TALK</p><h2>Let&apos;s make<br />something nice<span className="period">.</span></h2><p>{site.contactCopy}</p><div className="contact-actions"><a className="button button-pink" href={`mailto:${site.links.email}`}><Mail size={17} /> Write me</a><a className="button button-outline" href={site.links.github} target="_blank" rel="noreferrer"><Code2 size={17} /> GitHub</a></div><button className="back-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top ↑</button></motion.section> }
 function Background() { return <><div className="background-orb orb-one" aria-hidden="true" /><div className="background-orb orb-two" aria-hidden="true" /><div className="bubble bubble-one" aria-hidden="true" /><div className="bubble bubble-two" aria-hidden="true" /></> }
 export default App

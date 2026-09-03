@@ -894,6 +894,115 @@ main {
     }
 }
 
+/* LiveGraphRAG: compact four-step product walkthrough. */
+.project-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #edf0f8;
+}
+
+.project-carousel .carousel-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transform: scale(1.025);
+    transition: opacity .45s ease, transform .7s ease;
+}
+
+.project-carousel .carousel-image.is-active {
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-caption {
+    position: absolute;
+    z-index: 2;
+    left: 16px;
+    bottom: 15px;
+    max-width: calc(100% - 32px);
+    padding: 9px 12px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 12px;
+    color: #fff;
+    background: rgba(17, 31, 71, .74);
+    box-shadow: 0 8px 24px rgba(19, 29, 58, .18);
+    backdrop-filter: blur(9px);
+}
+
+.carousel-caption span {
+    display: block;
+    margin-bottom: 3px;
+    color: #65f1d8;
+    font: 10px 'DM Mono', monospace;
+    letter-spacing: .08em;
+}
+
+.carousel-caption strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: .06em;
+}
+
+.carousel-caption p {
+    margin: 3px 0 0;
+    color: rgba(255, 255, 255, .78);
+    font-size: 11px;
+}
+
+.carousel-dots {
+    position: absolute;
+    z-index: 3;
+    right: 16px;
+    bottom: 17px;
+    display: flex;
+    gap: 6px;
+}
+
+.carousel-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .62);
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+}
+
+.carousel-dots button.is-active {
+    width: 20px;
+    background: #65f1d8;
+}
+
+.carousel-dots button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 540px) {
+    .carousel-caption {
+        left: 12px;
+        bottom: 12px;
+        padding: 8px 10px;
+    }
+
+    .carousel-caption p {
+        display: none;
+    }
+
+    .carousel-dots {
+        right: 12px;
+        bottom: 15px;
+    }
+}
+
 /* Project showcase upgrade */
 .project-visual-meta {
     position: absolute;
@@ -993,9 +1102,6 @@ main {
 
     .hero {
         gap: clamp(18px, 3vw, 48px);
-        /* Bring the whole first screen closer to the floating navigation. */
-        transform: translateY(-52px);
-        margin-bottom: -52px;
     }
 
     .hero-copy h1 {
