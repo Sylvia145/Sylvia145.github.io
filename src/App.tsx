@@ -58,15 +58,14 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
 function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, label: string, caption: string, alt: string }[] }) {
   const reduceMotion = useReducedMotion()
   const [activeSlide, setActiveSlide] = useState(0)
-  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
-    if (reduceMotion || paused) return
+    if (reduceMotion) return
     const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % slides.length), 3500)
     return () => window.clearInterval(timer)
-  }, [paused, reduceMotion, slides.length])
+  }, [reduceMotion, slides.length])
 
-  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false) }}>
+  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览">
     {slides.map((slide, index) => <img className={index === activeSlide ? 'carousel-image is-active' : 'carousel-image'} src={slide.src} alt={slide.alt} key={slide.src} />)}
     <div className="carousel-caption"><span>{String(activeSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span><strong>{slides[activeSlide].label}</strong><p>{slides[activeSlide].caption}</p></div>
     <div className="carousel-dots" aria-label="切换产品截图">{slides.map((slide, index) => <button className={index === activeSlide ? 'is-active' : ''} type="button" onClick={() => setActiveSlide(index)} aria-label={`显示：${slide.label}`} aria-pressed={index === activeSlide} key={slide.src} />)}</div>
