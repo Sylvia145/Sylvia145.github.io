@@ -924,43 +924,43 @@ main {
 .carousel-caption {
     position: absolute;
     z-index: 2;
-    left: 16px;
-    bottom: 15px;
-    max-width: calc(100% - 32px);
-    padding: 9px 12px;
-    border: 1px solid rgba(255, 255, 255, .55);
-    border-radius: 12px;
-    color: #fff;
-    background: rgba(17, 31, 71, .74);
-    box-shadow: 0 8px 24px rgba(19, 29, 58, .18);
-    backdrop-filter: blur(9px);
+    top: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    max-width: calc(100% - 122px);
+    padding: 7px 10px;
+    border: 1px solid rgba(244, 128, 171, .32);
+    border-radius: 999px;
+    color: #29242a;
+    background: rgba(255, 250, 252, .76);
+    box-shadow: 0 5px 16px rgba(151, 93, 114, .12);
+    backdrop-filter: blur(8px);
 }
 
 .carousel-caption span {
-    display: block;
-    margin-bottom: 3px;
-    color: #65f1d8;
+    color: #dd6490;
     font: 10px 'DM Mono', monospace;
     letter-spacing: .08em;
+    white-space: nowrap;
 }
 
 .carousel-caption strong {
-    display: block;
     font-size: 11px;
     letter-spacing: .06em;
+    white-space: nowrap;
 }
 
 .carousel-caption p {
-    margin: 3px 0 0;
-    color: rgba(255, 255, 255, .78);
-    font-size: 11px;
+    display: none;
 }
 
 .carousel-dots {
     position: absolute;
     z-index: 3;
+    top: 20px;
     right: 16px;
-    bottom: 17px;
     display: flex;
     gap: 6px;
 }
@@ -982,14 +982,14 @@ main {
 }
 
 .carousel-dots button:focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid #151319;
     outline-offset: 3px;
 }
 
 @media (max-width: 540px) {
     .carousel-caption {
         left: 12px;
-        bottom: 12px;
+        top: 12px;
         padding: 8px 10px;
     }
 
@@ -999,7 +999,7 @@ main {
 
     .carousel-dots {
         right: 12px;
-        bottom: 15px;
+        top: 17px;
     }
 }
 
