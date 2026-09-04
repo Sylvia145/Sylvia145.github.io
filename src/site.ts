@@ -17,7 +17,6 @@ export const site = {
     { src: '/photography/photo-10.webp', alt: 'Sylvia 的摄影作品 10' },
     { src: '/photography/photo-11.webp', alt: 'Sylvia 的摄影作品 11' },
     { src: '/photography/photo-12.webp', alt: 'Sylvia 的摄影作品 12' },
-    { src: '/photography/photo-13.webp', alt: 'Sylvia 的摄影作品 13' },
   ],
   projects: [
     {
