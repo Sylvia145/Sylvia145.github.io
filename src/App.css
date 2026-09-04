@@ -1084,6 +1084,78 @@ main {
     outline-offset: 3px;
 }
 
+/* Carousel arrows: shown on hover (or focus), hidden otherwise. */
+.carousel-arrow,
+.photo-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 50%;
+    color: #3a2f35;
+    background: rgba(255, 255, 255, .88);
+    box-shadow: 0 4px 14px rgba(74, 52, 62, .2);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .2s ease, transform .2s ease, background .2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.carousel-arrow-prev,
+.photo-arrow-prev {
+    left: 12px;
+}
+
+.carousel-arrow-next,
+.photo-arrow-next {
+    right: 12px;
+}
+
+.carousel-arrow:hover,
+.photo-arrow:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.06);
+}
+
+.project-carousel:hover .carousel-arrow,
+.photo-carousel:hover .photo-arrow,
+.project-carousel:focus-within .carousel-arrow,
+.photo-carousel:focus-within .photo-arrow {
+    opacity: 1;
+}
+
+/* Touch devices have no hover: keep arrows visible so dots aren't the only control. */
+@media (hover: none) {
+    .carousel-arrow,
+    .photo-arrow {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 540px) {
+    .carousel-arrow,
+    .photo-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carousel-arrow-prev,
+    .photo-arrow-prev {
+        left: 8px;
+    }
+
+    .carousel-arrow-next,
+    .photo-arrow-next {
+        right: 8px;
+    }
+}
+
 @media (max-width: 540px) {
     .carousel-caption {
         left: 12px;

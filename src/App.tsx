@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Check, Code2, Mail, Menu, Sparkles, Terminal, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Check, ChevronLeft, ChevronRight, Code2, Mail, Menu, Sparkles, Terminal, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { site } from './site'
 import './App.css'
@@ -58,15 +58,20 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
 function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, label: string, caption: string, alt: string }[] }) {
   const reduceMotion = useReducedMotion()
   const [activeSlide, setActiveSlide] = useState(0)
+  const [hovered, setHovered] = useState(false)
 
   useEffect(() => {
-    if (reduceMotion) return
+    if (reduceMotion || hovered) return
     const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % slides.length), 3500)
     return () => window.clearInterval(timer)
-  }, [reduceMotion, slides.length])
+  }, [hovered, reduceMotion, slides.length])
 
-  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览">
+  const go = (delta: number) => setActiveSlide((current) => (current + delta + slides.length) % slides.length)
+
+  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
     {slides.map((slide, index) => <img className={index === activeSlide ? 'carousel-image is-active' : 'carousel-image'} src={slide.src} alt={slide.alt} key={slide.src} />)}
+    <button className="carousel-arrow carousel-arrow-prev" type="button" onClick={() => go(-1)} aria-label="上一张产品截图"><ChevronLeft size={20} /></button>
+    <button className="carousel-arrow carousel-arrow-next" type="button" onClick={() => go(1)} aria-label="下一张产品截图"><ChevronRight size={20} /></button>
     <div className="carousel-caption"><span>{String(activeSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span><strong>{slides[activeSlide].label}</strong><p>{slides[activeSlide].caption}</p></div>
     <div className="carousel-dots" aria-label="切换产品截图">{slides.map((slide, index) => <button className={index === activeSlide ? 'is-active' : ''} type="button" onClick={() => setActiveSlide(index)} aria-label={`显示：${slide.label}`} aria-pressed={index === activeSlide} key={slide.src} />)}</div>
   </div>
@@ -75,15 +80,20 @@ function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, la
 function PhotoCarousel({ photos }: { photos: readonly { src: string, alt: string }[] }) {
   const reduceMotion = useReducedMotion()
   const [activePhoto, setActivePhoto] = useState(0)
+  const [hovered, setHovered] = useState(false)
 
   useEffect(() => {
-    if (reduceMotion) return
+    if (reduceMotion || hovered) return
     const timer = window.setInterval(() => setActivePhoto((current) => (current + 1) % photos.length), 4200)
     return () => window.clearInterval(timer)
-  }, [photos.length, reduceMotion])
+  }, [hovered, photos.length, reduceMotion])
 
-  return <div className="photo-carousel" role="region" aria-label="Sylvia 的摄影作品轮播">
+  const go = (delta: number) => setActivePhoto((current) => (current + delta + photos.length) % photos.length)
+
+  return <div className="photo-carousel" role="region" aria-label="Sylvia 的摄影作品轮播" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
     {photos.map((photo, index) => <figure className={index === activePhoto ? 'photo-slide is-active' : 'photo-slide'} key={photo.src}><img className="photo-slide-blur" src={photo.src} alt="" aria-hidden="true" /><img className="photo-slide-image" src={photo.src} alt={photo.alt} loading={index === 0 ? 'eager' : 'lazy'} /></figure>)}
+    <button className="photo-arrow photo-arrow-prev" type="button" onClick={() => go(-1)} aria-label="上一张摄影作品"><ChevronLeft size={20} /></button>
+    <button className="photo-arrow photo-arrow-next" type="button" onClick={() => go(1)} aria-label="下一张摄影作品"><ChevronRight size={20} /></button>
     <span className="photo-counter">{String(activePhoto + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>
     <div className="photo-dots" aria-label="切换摄影作品">{photos.map((photo, index) => <button className={index === activePhoto ? 'is-active' : ''} type="button" onClick={() => setActivePhoto(index)} aria-label={`显示第 ${index + 1} 张摄影作品`} aria-pressed={index === activePhoto} key={photo.src} />)}</div>
   </div>
