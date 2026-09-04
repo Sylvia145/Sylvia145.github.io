@@ -4,6 +4,17 @@ export const site = {
   about: '我是 Sylvia。这里记录我在代码、Agent 和日常创作之间来回穿梭的痕迹。比起给自己贴标签，我更愿意持续做些有趣、可靠，也有一点点个性的东西。',
   stack: ['Python', 'MCP', 'Agentic RAG', 'TypeScript', 'Docker', 'Local-first'],
   links: { github: 'https://github.com/Sylvia145', email: 'hello@example.com' },
+  photography: [
+    { src: '/photography/photo-01.webp', alt: 'Sylvia 的摄影作品 01' },
+    { src: '/photography/photo-02.webp', alt: 'Sylvia 的摄影作品 02' },
+    { src: '/photography/photo-03.webp', alt: 'Sylvia 的摄影作品 03' },
+    { src: '/photography/photo-04.webp', alt: 'Sylvia 的摄影作品 04' },
+    { src: '/photography/photo-05.webp', alt: 'Sylvia 的摄影作品 05' },
+    { src: '/photography/photo-06.webp', alt: 'Sylvia 的摄影作品 06' },
+    { src: '/photography/photo-07.webp', alt: 'Sylvia 的摄影作品 07' },
+    { src: '/photography/photo-08.webp', alt: 'Sylvia 的摄影作品 08' },
+    { src: '/photography/photo-09.webp', alt: 'Sylvia 的摄影作品 09' },
+  ],
   projects: [
     {
       title: 'LiveGraphRAG', subtitle: 'Version-aware knowledge, with proof',

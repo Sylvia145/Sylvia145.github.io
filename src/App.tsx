@@ -43,7 +43,7 @@ function App() {
     </section>
     <section className="section about" id="about"><motion.div {...fadeUp}><p className="section-index">01 / ABOUT ME</p><h2>把好奇心，<br />做成可以运行的东西。</h2></motion.div><motion.div className="about-note" {...fadeUp}><p>{site.about}</p><div className="stack-list">{site.stack.map((item) => <span key={item}>{item}</span>)}</div></motion.div></section>
     <section className="section projects" id="projects"><motion.div className="section-heading" {...fadeUp}><p className="section-index">02 / SELECTED BUILDS</p><h2>两件成形的作品。</h2><p>从可验证的知识检索，到有边界的本地 coding agent。</p></motion.div><div className="project-grid">{site.projects.map((project, index) => <ProjectCard project={project} index={index} key={project.title} />)}</div></section>
-    <section className="section moments" id="moments"><motion.div className="section-heading" {...fadeUp}><p className="section-index">03 / SMALL MOMENTS</p><h2>也给生活留一点镜头。</h2></motion.div><div className="moment-grid"><motion.article className="photo-card" {...fadeUp}><div className="placeholder-photo"><span>PHOTO</span><p>摄影作品<br />coming soon</p></div><div><p className="project-number">01</p><h3>Through my lens</h3><p>一张留给光和日常的照片。</p></div></motion.article><motion.article className="video-card" {...fadeUp}><video className="aigc-video" src="/aigc-transition.mp4?v=3" autoPlay loop muted playsInline controls preload="metadata" aria-label="AIGC 转场视频" /><div><p className="project-number">02</p><h3>A tiny AIGC experiment</h3><p>抖音 2.6 万播放 · 1021 点赞的 AIGC 转场小实验。</p></div></motion.article></div></section>
+    <section className="section moments" id="moments"><motion.div className="section-heading" {...fadeUp}><p className="section-index">03 / SMALL MOMENTS</p><h2>也给生活留一点镜头。</h2></motion.div><div className="moment-grid"><motion.article className="photo-card" {...fadeUp}><PhotoCarousel photos={site.photography} /><div><p className="project-number">01</p><h3>Through my lens</h3><p>热爱镜头里的风景，也热爱每一个鲜活的自己。</p></div></motion.article><motion.article className="video-card" {...fadeUp}><video className="aigc-video" src="/aigc-transition.mp4?v=3" autoPlay loop muted playsInline controls preload="metadata" aria-label="AIGC 转场视频" /><div><p className="project-number">02</p><h3>A tiny AIGC experiment</h3><p>2.6 万播放 · 1021 点赞的 AIGC 转场小实验。</p></div></motion.article></div></section>
     <Contact />
   </main>
 }
@@ -69,6 +69,23 @@ function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, la
     {slides.map((slide, index) => <img className={index === activeSlide ? 'carousel-image is-active' : 'carousel-image'} src={slide.src} alt={slide.alt} key={slide.src} />)}
     <div className="carousel-caption"><span>{String(activeSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span><strong>{slides[activeSlide].label}</strong><p>{slides[activeSlide].caption}</p></div>
     <div className="carousel-dots" aria-label="切换产品截图">{slides.map((slide, index) => <button className={index === activeSlide ? 'is-active' : ''} type="button" onClick={() => setActiveSlide(index)} aria-label={`显示：${slide.label}`} aria-pressed={index === activeSlide} key={slide.src} />)}</div>
+  </div>
+}
+
+function PhotoCarousel({ photos }: { photos: readonly { src: string, alt: string }[] }) {
+  const reduceMotion = useReducedMotion()
+  const [activePhoto, setActivePhoto] = useState(0)
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const timer = window.setInterval(() => setActivePhoto((current) => (current + 1) % photos.length), 4200)
+    return () => window.clearInterval(timer)
+  }, [photos.length, reduceMotion])
+
+  return <div className="photo-carousel" role="region" aria-label="Sylvia 的摄影作品轮播">
+    {photos.map((photo, index) => <figure className={index === activePhoto ? 'photo-slide is-active' : 'photo-slide'} key={photo.src}><img className="photo-slide-blur" src={photo.src} alt="" aria-hidden="true" /><img className="photo-slide-image" src={photo.src} alt={photo.alt} loading={index === 0 ? 'eager' : 'lazy'} /></figure>)}
+    <span className="photo-counter">{String(activePhoto + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>
+    <div className="photo-dots" aria-label="切换摄影作品">{photos.map((photo, index) => <button className={index === activePhoto ? 'is-active' : ''} type="button" onClick={() => setActivePhoto(index)} aria-label={`显示第 ${index + 1} 张摄影作品`} aria-pressed={index === activePhoto} key={photo.src} />)}</div>
   </div>
 }
 
