@@ -3,7 +3,7 @@ export const site = {
   hero: { tagline: 'A little maker, a lot curious.', intro: '我喜欢把模糊的想法拆成小块，再让它们真的跑起来。最近在做 AI Agent、知识检索和本地开发工具。' },
   about: '我是 Sylvia。这里记录我在代码、Agent 和日常创作之间来回穿梭的痕迹。比起给自己贴标签，我更愿意持续做些有趣、可靠，也有一点点个性的东西。',
   stack: ['Python', 'MCP', 'Agentic RAG', 'TypeScript', 'Docker', 'Local-first'],
-  links: { github: 'https://github.com/Sylvia145', email: 'hello@example.com' },
+  links: { github: 'https://github.com/Sylvia145', email: 'bupt_liuxinyi@163.com' },
   photography: [
     { src: '/photography/photo-01.webp', alt: 'Sylvia 的摄影作品 01' },
     { src: '/photography/photo-02.webp', alt: 'Sylvia 的摄影作品 02' },
@@ -25,10 +25,10 @@ export const site = {
       highlights: ['多版本与 tenant / snapshot 边界，避免旧资料混入当前答案', '关键词、向量、全文与图关系协同检索，保留可点击来源', '引用不足时拒答；异步索引、缓存和观测组件模拟真实运行链路'],
       tags: ['Python', 'FastAPI', 'GraphRAG', 'Neo4j', 'Redis', 'Docker'], href: 'https://github.com/Sylvia145/LiveGraphRAG',
       previewSlides: [
-        { src: '/livegraphrag/overview.png', label: 'PRODUCT OVERVIEW', caption: '版本敏感知识的可验证检索入口', alt: 'LiveGraphRAG 产品首页，展示可追溯的运维知识助手定位' },
-        { src: '/livegraphrag/query.png', label: 'ASK A QUESTION', caption: '选择产品版本后，开始分析具体问题', alt: 'LiveGraphRAG 问题输入与版本选择界面' },
-        { src: '/livegraphrag/result.png', label: 'VERIFIED ANSWER', caption: '答案、推理路径与引用证据同步呈现', alt: 'LiveGraphRAG 可验证答案和分析上下文界面' },
-        { src: '/livegraphrag/sources.png', label: 'SOURCE LIBRARY', caption: '每一段结论都能回到原始资料', alt: 'LiveGraphRAG 回答依据与资料来源列表界面' },
+        { src: '/livegraphrag/overview.png?v=2', label: 'PRODUCT OVERVIEW', caption: '版本敏感知识的可验证检索入口', alt: 'LiveGraphRAG 产品首页，展示可追溯的运维知识助手定位' },
+        { src: '/livegraphrag/query.png?v=2', label: 'ASK A QUESTION', caption: '选择产品版本后，开始分析具体问题', alt: 'LiveGraphRAG 问题输入与版本选择界面' },
+        { src: '/livegraphrag/result.png?v=2', label: 'VERIFIED ANSWER', caption: '答案、推理路径与引用证据同步呈现', alt: 'LiveGraphRAG 可验证答案和分析上下文界面' },
+        { src: '/livegraphrag/sources.png?v=2', label: 'SOURCE LIBRARY', caption: '每一段结论都能回到原始资料', alt: 'LiveGraphRAG 回答依据与资料来源列表界面' },
       ],
     },
     {
