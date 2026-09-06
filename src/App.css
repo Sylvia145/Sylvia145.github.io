@@ -1079,6 +1079,15 @@ main {
     background: #151319;
 }
 
+/* Moka's terminal screenshots need light controls for contrast. */
+.project-2 .carousel-dots button {
+    background: rgba(255, 255, 255, .58);
+}
+
+.project-2 .carousel-dots button.is-active {
+    background: #fff;
+}
+
 .carousel-dots button:focus-visible {
     outline: 2px solid #151319;
     outline-offset: 3px;
