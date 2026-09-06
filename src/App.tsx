@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Check, ChevronLeft, ChevronRight, Code2, Mail, Menu, Sparkles, Terminal, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Check, ChevronLeft, ChevronRight, Code2, Mail, Menu, Sparkles, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { site } from './site'
 import './App.css'
@@ -50,12 +50,12 @@ function App() {
 
 function ProjectCard({ project, index }: { project: Project, index: number }) {
   return <motion.article className={`project-card project-${index + 1}`} {...fadeUp}>
-    <div className="project-visual" aria-label={`${project.title} 项目预览`}>{'previewSlides' in project ? <ProductPreviewCarousel slides={project.previewSlides} /> : project.image ? <><img src={project.image} alt="Moka 终端界面预览" loading="lazy" /><span className="project-visual-meta"><Terminal size={14} /> {project.visualLabel}</span></> : null}</div>
+    <div className="project-visual" aria-label={`${project.title} 项目预览`}><ProductPreviewCarousel title={project.title} slides={project.previewSlides} /></div>
     <div className="project-body"><p className="project-number">0{index + 1}</p><h3>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p><ul>{project.highlights.map((item) => <li key={item}><Check size={14} />{item}</li>)}</ul><div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a className="project-link" href={project.href} target="_blank" rel="noreferrer">View on GitHub <ArrowUpRight size={17} /></a></div>
   </motion.article>
 }
 
-function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, label: string, caption: string, alt: string }[] }) {
+function ProductPreviewCarousel({ title, slides }: { title: string, slides: readonly { src: string, label: string, caption: string, alt: string }[] }) {
   const reduceMotion = useReducedMotion()
   const [activeSlide, setActiveSlide] = useState(0)
   const [hovered, setHovered] = useState(false)
@@ -68,7 +68,7 @@ function ProductPreviewCarousel({ slides }: { slides: readonly { src: string, la
 
   const go = (delta: number) => setActiveSlide((current) => (current + delta + slides.length) % slides.length)
 
-  return <div className="project-carousel" role="region" aria-label="LiveGraphRAG 产品界面预览" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+  return <div className="project-carousel" role="region" aria-label={`${title} 产品界面预览`} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
     {slides.map((slide, index) => <img className={index === activeSlide ? 'carousel-image is-active' : 'carousel-image'} src={slide.src} alt={slide.alt} key={slide.src} />)}
     <button className="carousel-arrow carousel-arrow-prev" type="button" onClick={() => go(-1)} aria-label="上一张产品截图"><ChevronLeft size={20} /></button>
     <button className="carousel-arrow carousel-arrow-next" type="button" onClick={() => go(1)} aria-label="下一张产品截图"><ChevronRight size={20} /></button>
