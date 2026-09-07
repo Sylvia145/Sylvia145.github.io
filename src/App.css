@@ -1,8 +1,8 @@
 main {
     overflow: hidden;
     position: relative;
-    padding: 24px clamp(18px, 5vw, 82px) 0;
-    background: radial-gradient(circle at 76% 7%, #fff7cd 0 6%, transparent 25%), radial-gradient(circle at 9% 12%, #f8c7d5 0 6%, transparent 29%), linear-gradient(135deg, #fff7f5 0%, #fffaf0 51%, #e1f5f1 100%);
+    padding: 34px clamp(18px, 5vw, 82px) 0;
+    background: radial-gradient(circle at 76% 7%, rgba(237, 208, 174, .38) 0 7%, transparent 27%), radial-gradient(circle at 9% 12%, rgba(238, 180, 198, .46) 0 6%, transparent 28%), #f2ede3;
 }
 
 .background-orb {
@@ -16,7 +16,7 @@ main {
 .orb-one {
     width: 440px;
     height: 440px;
-    background: #ffb8d4;
+    background: #e9a5ba;
     left: -260px;
     top: 220px;
 }
@@ -24,7 +24,7 @@ main {
 .orb-two {
     width: 480px;
     height: 480px;
-    background: #c1f0e5;
+    background: #e6c7ad;
     right: -300px;
     top: 680px;
 }
@@ -33,9 +33,9 @@ main {
     position: absolute;
     width: 72px;
     aspect-ratio: 1;
-    border: 1px solid rgba(255, 255, 255, .8);
+    border: 1px solid rgba(123, 93, 76, .18);
     border-radius: 50%;
-    box-shadow: inset 0 0 16px rgba(255, 255, 255, .6);
+    box-shadow: inset 0 0 16px rgba(255, 250, 244, .55);
     pointer-events: none;
 }
 
@@ -52,18 +52,18 @@ main {
 
 .site-header {
     position: sticky;
-    top: 18px;
+    top: 22px;
     z-index: 20;
-    height: 76px;
+    height: 66px;
     max-width: 1460px;
     margin: 0 auto;
-    padding: 0 26px;
-    border: 1px solid rgba(40, 36, 33, .08);
-    border-radius: 26px;
+    padding: 0 22px;
+    border: 1px solid rgba(74, 61, 49, .14);
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    background: rgba(255, 253, 248, .78);
-    box-shadow: 0 12px 30px rgba(86, 57, 53, .1);
+    background: rgba(247, 242, 233, .78);
+    box-shadow: 0 10px 24px rgba(72, 57, 46, .08);
     backdrop-filter: blur(15px);
 }
 
@@ -79,13 +79,13 @@ main {
 .brand-mark {
     height: 39px;
     width: 39px;
-    border-radius: 50%;
+    border-radius: 3px;
     display: grid;
     place-items: center;
     color: white;
     font-family: 'DM Mono', monospace;
     letter-spacing: 0;
-    background: #252321;
+    background: #312b25;
 }
 
 .nav-links {
@@ -98,19 +98,19 @@ main {
 }
 
 .nav-links a:hover {
-    color: #e66696;
+    color: #b95772;
 }
 
 .header-github {
-    border: 1px solid #e5ded6;
-    border-radius: 15px;
-    padding: 10px 14px;
+    border: 1px solid rgba(74, 61, 49, .17);
+    border-radius: 4px;
+    padding: 8px 12px;
     display: inline-flex;
     align-items: center;
     gap: 7px;
     font-size: 13px;
     font-weight: 700;
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 252, 246, .45);
 }
 
 .menu-button {
@@ -141,19 +141,18 @@ main {
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 9px 13px;
-    border: 1px solid rgba(42, 39, 36, .08);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .52);
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
 }
 
 .eyebrow span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #67d5b5;
-    box-shadow: 0 0 0 4px rgba(103, 213, 181, .13);
+    width: 26px;
+    height: 1px;
+    border-radius: 0;
+    background: #c2677d;
+    box-shadow: none;
 }
 
 .hero h1 {
@@ -165,7 +164,7 @@ main {
 }
 
 .period {
-    color: #fa79a9;
+    color: #c7647b;
 }
 
 .hero-line {
@@ -173,7 +172,7 @@ main {
     font-size: clamp(25px, 3vw, 41px);
     line-height: 1.08;
     font-weight: 700;
-    color: #ef6195;
+    color: #a94d67;
     letter-spacing: -.05em;
 }
 
@@ -192,7 +191,7 @@ main {
 }
 
 .button {
-    border-radius: 14px;
+    border-radius: 4px;
     padding: 13px 18px;
     display: inline-flex;
     align-items: center;
@@ -209,13 +208,13 @@ main {
 
 .button-dark {
     color: #fff;
-    background: #252321;
-    box-shadow: 0 11px 22px rgba(30, 25, 25, .2);
+    background: #312b25;
+    box-shadow: 0 9px 18px rgba(47, 39, 32, .16);
 }
 
 .button-light {
-    border: 1px solid #e5ded6;
-    background: rgba(255, 255, 255, .65);
+    border: 1px solid rgba(74, 61, 49, .2);
+    background: rgba(255, 252, 246, .48);
 }
 
 .avatar-stage {
@@ -232,8 +231,8 @@ main {
     left: 50%;
     top: 45%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle at 40% 30%, #fff 0 5%, #ffd8e7 34%, #e3f6f0 68%, #c4ddea 100%);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 25px 60px rgba(116, 75, 92, .14);
+    background: radial-gradient(circle at 40% 30%, #fffaf3 0 5%, #f2cbd4 34%, #e8d7bc 68%, #d9c5b3 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 252, 246, .9), 0 25px 60px rgba(116, 75, 92, .12);
 }
 
 .avatar-wrap {
@@ -260,8 +259,8 @@ main {
     z-index: 4;
     padding: 14px;
     border: 1px solid rgba(47, 41, 42, .1);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, .82);
+    border-radius: 5px;
+    background: rgba(250, 246, 238, .82);
     box-shadow: 0 12px 24px rgba(69, 50, 59, .13);
     backdrop-filter: blur(12px);
 }
@@ -276,7 +275,7 @@ main {
 
 .sticker-now span {
     font-family: 'DM Mono', monospace;
-    color: #ee6492;
+    color: #b95772;
 }
 
 .sticker-now strong {
@@ -286,7 +285,7 @@ main {
 .sticker-spark {
     left: 5%;
     top: 21%;
-    color: #f15f95;
+    color: #bf5d76;
 }
 
 .section {
@@ -298,7 +297,7 @@ main {
 
 .section-index {
     margin: 0 0 17px;
-    color: #df6391;
+    color: #ae5a6d;
 }
 
 .section h2,
@@ -337,12 +336,12 @@ main {
 
 .stack-list span,
 .tag-list span {
-    border: 1px solid rgba(57, 50, 48, .13);
-    border-radius: 999px;
+    border: 1px solid rgba(74, 61, 49, .16);
+    border-radius: 3px;
     padding: 8px 11px;
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 252, 246, .42);
 }
 
 .section-heading>p:not(.section-index) {
@@ -360,8 +359,8 @@ main {
 .project-card {
     overflow: hidden;
     border: 1px solid rgba(55, 48, 46, .09);
-    border-radius: 30px;
-    background: rgba(255, 255, 255, .67);
+    border-radius: 12px;
+    background: rgba(250, 247, 240, .7);
     box-shadow: 0 18px 40px rgba(87, 63, 57, .08);
 }
 
@@ -391,7 +390,7 @@ main {
 }
 
 .project-subtitle {
-    color: #dd6490;
+    color: #ae5a6d;
     font-family: 'DM Mono', monospace;
     font-size: 12px;
 }
@@ -538,8 +537,8 @@ main {
     gap: 20px;
     align-items: center;
     padding: 19px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, .62);
+    border-radius: 12px;
+    background: rgba(250, 247, 240, .65);
     border: 1px solid rgba(55, 48, 46, .09);
 }
 
@@ -731,7 +730,7 @@ main {
     min-height: 590px;
     margin: 0 auto 28px;
     padding: clamp(40px, 8vw, 100px);
-    border-radius: 39px 39px 0 0;
+    border-radius: 14px 14px 0 0;
     color: #f7f3ec;
     position: relative;
     overflow: hidden;
@@ -768,8 +767,8 @@ main {
 }
 
 .button-pink {
-    background: #f496bc;
-    color: #2c2228;
+    background: #c96f87;
+    color: #fffaf3;
 }
 
 .button-outline {
@@ -803,8 +802,8 @@ main {
     position: relative;
     max-width: 430px;
     padding: 45px;
-    border-radius: 28px;
-    background: #fff8f5;
+    border-radius: 12px;
+    background: #f9f3e9;
     box-shadow: 0 30px 60px #0003;
 }
 
@@ -835,14 +834,14 @@ main {
 
 @media (max-width: 540px) {
     main {
-        padding: 14px 16px 0;
+        padding: 22px 16px 0;
     }
 
     .site-header {
-        height: 63px;
+        height: 60px;
         padding: 0 16px;
-        top: 10px;
-        border-radius: 20px;
+        top: 14px;
+        border-radius: 6px;
     }
 
     .brand {
@@ -871,11 +870,11 @@ main {
         right: 0;
         margin: 0;
         padding: 14px;
-        border-radius: 18px;
+        border-radius: 6px;
         flex-direction: column;
         gap: 4px;
-        background: #fffaf8;
-        box-shadow: 0 12px 30px #5b414128;
+        background: #f9f3e9;
+        box-shadow: 0 12px 30px rgba(72, 57, 46, .12);
     }
 
     .nav-links a {
@@ -971,7 +970,7 @@ main {
         min-height: 520px;
         margin-bottom: 0;
         padding: 58px 30px;
-        border-radius: 29px 29px 0 0;
+        border-radius: 12px 12px 0 0;
     }
 
     .contact h2 {
@@ -1081,11 +1080,11 @@ main {
 
 /* Moka's terminal screenshots need light controls for contrast. */
 .project-2 .carousel-dots button {
-    background: rgba(255, 255, 255, .58);
+    background: rgba(255, 247, 245, .72);
 }
 
 .project-2 .carousel-dots button.is-active {
-    background: #fff;
+    background: #fff7f5;
 }
 
 .carousel-dots button:focus-visible {
