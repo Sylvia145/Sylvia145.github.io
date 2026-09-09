@@ -6,7 +6,7 @@ export const site = {
   links: { github: 'https://github.com/Sylvia145', email: 'bupt_liuxinyi@163.com' },
   photography: [
     { src: '/photography/photo-01.webp?v=2', alt: 'Sylvia 的摄影作品 01' },
-    { src: '/photography/photo-02.webp?v=2', alt: 'Sylvia 的摄影作品 02' },
+    { src: '/photography/photo-02.webp?v=3', alt: 'Sylvia 的摄影作品 02' },
     { src: '/photography/photo-03.webp?v=2', alt: 'Sylvia 的摄影作品 03' },
     { src: '/photography/photo-04.webp?v=2', alt: 'Sylvia 的摄影作品 04' },
     { src: '/photography/photo-05.webp?v=2', alt: 'Sylvia 的摄影作品 05' },
