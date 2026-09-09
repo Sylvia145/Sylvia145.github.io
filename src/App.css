@@ -200,7 +200,7 @@ main {
     font-size: clamp(72px, 10vw, 157px);
     margin: 22px 0 0;
     line-height: .82;
-    letter-spacing: -.09em;
+    letter-spacing: .08em;
     font-weight: 800;
 }
 
