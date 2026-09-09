@@ -108,8 +108,10 @@ function PhotoCarousel({ photos }: { photos: readonly { src: string, alt: string
 
   const go = (delta: number) => setActivePhoto((current) => (current + delta + photos.length) % photos.length)
 
+  const photo = photos[activePhoto]
+
   return <div className="photo-carousel" role="region" aria-label="Sylvia 的摄影作品轮播" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-    {photos.map((photo, index) => <figure className={index === activePhoto ? 'photo-slide is-active' : 'photo-slide'} key={photo.src}><img className="photo-slide-blur" src={photo.src} alt="" aria-hidden="true" /><img className="photo-slide-image" src={photo.src} alt={photo.alt} loading={index === 0 ? 'eager' : 'lazy'} /></figure>)}
+    <figure className="photo-slide is-active" key={photo.src}><img className="photo-slide-blur" src={photo.src} alt="" aria-hidden="true" /><img className="photo-slide-image" src={photo.src} alt={photo.alt} loading="lazy" /></figure>
     <button className="photo-arrow photo-arrow-prev" type="button" onClick={() => go(-1)} aria-label="上一张摄影作品"><ChevronLeft size={20} /></button>
     <button className="photo-arrow photo-arrow-next" type="button" onClick={() => go(1)} aria-label="下一张摄影作品"><ChevronRight size={20} /></button>
     <span className="photo-counter">{String(activePhoto + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>
