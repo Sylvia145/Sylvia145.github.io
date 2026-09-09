@@ -45,7 +45,7 @@ function App() {
     <header className="site-header">
       <a className="brand" href="#top" onClick={closeMenu} aria-label="Sylvia 主页"><span className="brand-mark">S</span><span>SYLVIA</span></a>
       <button className="menu-button" aria-label="打开导航" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
-      <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="主导航">{site.navigation.map((item) => <a className={activeSection === item.href.slice(1) ? 'is-active' : ''} aria-current={activeSection === item.href.slice(1) ? 'page' : undefined} key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>)}</nav>
+      <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="主导航">{site.navigation.map((item) => <a className={activeSection === item.href.slice(1) ? 'is-active' : ''} aria-current={activeSection === item.href.slice(1) ? 'page' : undefined} key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>)}<a className="mobile-resume" href="/liuxinyi_resume.pdf" download="刘欣怡-简历.pdf" onClick={closeMenu}><Download size={16} /> 下载简历</a></nav>
       <a className="header-resume" href="/liuxinyi_resume.pdf" download="刘欣怡-简历.pdf"><Download size={16} /> 下载简历</a>
     </header>
     <section className="hero" id="top">

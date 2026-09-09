@@ -140,6 +140,10 @@ main {
     background: rgba(255, 255, 255, .06);
 }
 
+.mobile-resume {
+    display: none;
+}
+
 .menu-button {
     display: none;
     border: 0;
@@ -185,10 +189,11 @@ main {
 }
 
 .eyebrow .eyebrow-rule {
-    width: 28px;
-    height: 1px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
     background: #e66696;
-    box-shadow: none;
+    box-shadow: 0 0 0 5px rgba(230, 102, 150, .1);
 }
 
 .hero h1 {
@@ -1180,6 +1185,17 @@ main {
     .nav-links a {
         padding: 11px;
         color: #302a35;
+    }
+
+    .nav-links .mobile-resume {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 6px;
+        color: #302a35;
+        background: #f3aacb;
+        font-weight: 800;
     }
 
     .nav-open {
