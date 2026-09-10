@@ -2433,7 +2433,16 @@ main {
     }
 
     .hero {
+        /* Keep both columns on a stable canvas instead of letting zoom-derived
+           viewport height move the artwork independently of the copy. */
+        min-height: 785px;
         gap: clamp(18px, 3vw, 48px);
+    }
+
+    .avatar-stage {
+        height: 590px;
+        min-height: 590px;
+        align-self: center;
     }
 
     .hero-copy h1 {
@@ -2447,6 +2456,7 @@ main {
 
     .avatar-orbit {
         width: min(500px, 80%);
+        top: 49%;
     }
 }
 

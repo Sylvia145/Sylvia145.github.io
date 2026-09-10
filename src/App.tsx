@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Award, BookOpen, Camera, Check, ChevronLeft, ChevronRight, Code2, Download, Dumbbell, ExternalLink, Mail, MapPin, Menu, Music, Sparkles, Ticket, Trophy, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Award, BookOpen, Camera, Check, ChevronLeft, ChevronRight, Code2, Download, Dumbbell, ExternalLink, Mail, MapPin, Menu, Music, Sparkles, Ticket, Trophy, X, ZoomIn } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { site } from './site'
 import './App.css'
@@ -46,8 +46,8 @@ function App() {
     <header className="site-header">
       <a className="brand" href="#top" onClick={closeMenu} aria-label="Sylvia 主页"><span className="brand-mark">S</span><span>SYLVIA</span></a>
       <button className="menu-button" aria-label="打开导航" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
-      <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="主导航">{site.navigation.map((item) => <a className={activeSection === item.href.slice(1) ? 'is-active' : ''} aria-current={activeSection === item.href.slice(1) ? 'page' : undefined} key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>)}<a className="mobile-resume" href="/liuxinyi_resume.pdf" download="刘欣怡-简历.pdf" onClick={closeMenu}><Download size={16} /> 下载简历</a></nav>
-      <a className="header-resume" href="/liuxinyi_resume.pdf" download="刘欣怡-简历.pdf"><Download size={16} /> 下载简历</a>
+      <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="主导航">{site.navigation.map((item) => <a className={activeSection === item.href.slice(1) ? 'is-active' : ''} aria-current={activeSection === item.href.slice(1) ? 'page' : undefined} key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>)}<a className="mobile-resume" href="/liuxinyi_resume.pdf" download="北邮-刘欣怡-简历.pdf" onClick={closeMenu}><Download size={16} /> 下载简历</a></nav>
+      <a className="header-resume" href="/liuxinyi_resume.pdf" download="北邮-刘欣怡-简历.pdf"><Download size={16} /> 下载简历</a>
     </header>
     <section className="hero" id="top">
       <motion.div className="hero-copy" {...fadeUp}><p className="eyebrow"><span className="eyebrow-rule" /><span>HELLO, I&apos;M</span></p><h1>刘欣怡</h1><p className="hero-line">{site.hero.tagline}</p><p className="hero-intro">{site.hero.intro}</p><div className="hero-actions"><a className="button button-dark" href="#projects">查看项目 <ArrowDown size={16} /></a><a className="button button-light" href={site.links.github} target="_blank" rel="noreferrer">GitHub <Code2 size={16} /></a></div></motion.div>
@@ -84,7 +84,7 @@ function ResearchCard({ output }: { output: ResearchOutput }) {
     return () => window.removeEventListener('keydown', closeOnEscape)
   }, [])
   return <motion.article className="research-card" {...fadeUp}>
-    <button className="research-cover" type="button" aria-label={`放大查看${output.kind}成果图`} onClick={() => !imageFailed && setModal('image')}>{imageFailed ? <ResearchPlaceholder label={output.placeholder} /> : <><img src={output.image} alt={`${output.kind}成果配图`} loading="lazy" onError={() => setImageFailed(true)} /><span>点击放大</span></>}</button>
+    <button className="research-cover" type="button" aria-label={`放大查看${output.kind}成果图`} onClick={() => !imageFailed && setModal('image')}>{imageFailed ? <ResearchPlaceholder label={output.placeholder} /> : <><img src={output.thumbnail} alt={`${output.kind}成果配图`} loading="lazy" decoding="async" onError={() => setImageFailed(true)} /><span aria-hidden="true"><ZoomIn size={17} /></span></>}</button>
     <div className="research-body"><div className="research-meta"><span>{output.kind}</span><span>{output.date}</span></div><p className="research-venue">{output.venue}</p><h3>{output.title}</h3><p className="research-summary">{output.summary}</p><div className="research-metrics">{output.metrics.map((metric) => <span key={metric}>{metric}</span>)}</div><div className="research-actions"><button type="button" className="research-toggle" onClick={() => setModal('details')}>查看研究详情<ArrowUpRight size={16} /></button><a href={output.href} target="_blank" rel="noreferrer">查看{output.kind === '论文' ? ' IEEE 论文' : '专利信息'}<ExternalLink size={15} /></a></div></div>
     {modal && <div className="research-modal" role="presentation" onClick={() => setModal(null)}><section className={modal === 'image' ? 'research-modal-card is-image' : 'research-modal-card'} role="dialog" aria-modal="true" aria-label={modal === 'image' ? `${output.kind}成果图预览` : `${output.kind}研究详情`} onClick={(event) => event.stopPropagation()}><button className="research-modal-close" type="button" aria-label="关闭" onClick={() => setModal(null)}><X size={18} /></button>{modal === 'image' ? <img src={output.image} alt={`${output.kind}成果图原图`} /> : <><p>{output.venue} · {output.date}</p><h3>{output.title}</h3><div>{output.details}</div></>}</section></div>}
   </motion.article>

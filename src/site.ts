@@ -49,7 +49,7 @@ export const site = {
   researchOutputs: [
     {
       kind: '论文',
-      venue: 'EI · Optical Fiber Communications Conference',
+      venue: 'EI · Optical Fiber Communications Conference（光通信顶会）',
       date: '2025.04.04',
       title: 'GSNR-aware Transmission Optimization in Dynamic Programmable Raman Amplifier-enabled Multi-band Optical Systems',
       summary: '面向动态多波段光传输场景，构建 GSNR 感知模型并优化拉曼泵浦功率，让传输容量在变化中保持稳定。',
@@ -57,6 +57,7 @@ export const site = {
       details: '针对传统拉曼放大器模型仅适配特定信号、难以优化动态场景传输容量的问题，提出 GSNR 感知的 ANN 模型及传输优化方法。模型扩展 GSNR 输入维度，利用相邻信道相似性降维，并结合 PSO 算法优化拉曼泵浦功率，实现输出 GSNR 的最大化与平坦化。实验显示模型预测 RMSE 为 0.58 dB；在动态传输场景中，相较传统方法，GSNR 均值提升 1.08 dB、平坦度提升 40.02%。',
       href: 'https://ieeexplore.ieee.org/abstract/document/11046908',
       image: '/research/paper-cover.webp',
+      thumbnail: '/research/paper-cover-thumb.webp',
       placeholder: '论文成果图 / 待补充',
     },
     {
@@ -69,23 +70,24 @@ export const site = {
       details: '本专利提出基于 GSNR 感知的动态多波段光网络传输容量优化方法，将输入信号的 GSNR 分布纳入数据驱动模型输入维度；结合信道特征降维构建人工神经网络感知模型，并搭配优化算法与闭环反馈控制系统，实现拉曼放大器泵浦参数的动态自适应调整，改善传统方法在动态场景中泛化性不足的问题。',
       href: 'https://kns.cnki.net/kcms2/article/abstract?v=14XpHnsxtHHEDsWZVRSv2_6wZ5q7WF_ZmIApwNC6q-PbTQtJvQ_lLrQEfqjUnuMaRKo3GcbB-RdMWf4NCgFfMB6t0hFnRxYF4P6nTER1SrIVkzAGaOSv2hqpIw5ms0bNJh6OFRLCj4oLVNs6QHhY3BzOpmh35TFeTi-BN9Oyc9T1UYo73mdxLg==&uniplatform=NZKPT&language=CHS',
       image: '/research/patent-cover.webp',
+      thumbnail: '/research/patent-cover-thumb.webp',
       placeholder: '专利成果图 / 待补充',
     },
   ],
   competitions: [
     { date: '2023.06', title: '“大唐杯”全国大学生新一代信息通信技术大赛', level: '国家级三等奖', featured: true },
     { date: '2022.10', title: '高教社杯全国大学生数学建模竞赛', level: '北京市二等奖' },
-    { date: '2023.05', title: '中国大学生计算机设计大赛', level: '北京市三等奖' },
     { date: '2023.05', title: '美国大学生数学建模竞赛', level: 'Honorable Mention' },
+    { date: '2023.05', title: '中国大学生计算机设计大赛', level: '北京市三等奖' },
     { date: '2023.03', title: '北京科技大学第十六届智能车竞赛摄像头四轮组一等奖', level: '冠军' },
   ],
   honors: [
-    { date: '2021.05', title: '北京科技大学人民（新生）一等奖学金', level: '前 2%' },
-    { date: '2021–2023', title: '北京科技大学人民一等奖学金', level: '前 4%' },
-    { date: '2021.11', title: '北京科技大学优秀三好学生', level: '校级荣誉' },
-    { date: '2022.11', title: '北京科技大学优秀学生干部', level: '校级荣誉' },
+    { date: '2021.05', title: '人民（新生）一等奖学金', level: '前 2%' },
+    { date: '2021–2023', title: '人民一等奖学金', level: '前 4%' },
+    { date: '2021.11', title: '优秀三好学生', level: '校级荣誉' },
+    { date: '2022.11', title: '优秀学生干部', level: '校级荣誉' },
     { date: '2024.06', title: '北京市优秀毕业生', level: '市级荣誉' },
-    { date: '2025.09', title: '北京邮电大学研究生学业一等奖学金', level: '一等奖学金' },
+    { date: '2025.09', title: '研究生学业一等奖学金', level: '一等奖学金' },
   ],
   campusActivities: [
     {
