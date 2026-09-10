@@ -79,7 +79,7 @@ export const site = {
     { date: '2022.10', title: '高教社杯全国大学生数学建模竞赛', level: '北京市二等奖' },
     { date: '2023.05', title: '美国大学生数学建模竞赛', level: 'Honorable Mention' },
     { date: '2023.05', title: '中国大学生计算机设计大赛', level: '北京市三等奖' },
-    { date: '2023.03', title: '北京科技大学第十六届智能车竞赛摄像头四轮组一等奖', level: '冠军' },
+    { date: '2023.03', title: '北京科技大学第十六届智能车竞赛', level: '一等奖（冠军）' },
   ],
   honors: [
     { date: '2021.05', title: '人民（新生）一等奖学金', level: '前 2%' },

@@ -1660,6 +1660,19 @@ main {
     line-height: 1.7;
 }
 
+.internship-head .internship-award {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border: 1px solid rgba(244, 175, 207, .5);
+    border-radius: 999px;
+    color: #ffd2e6;
+    background: rgba(244, 175, 207, .13);
+    font-size: 11px;
+    line-height: 1.35;
+}
+
 .internship-head b {
     flex: 0 0 auto;
     padding: 9px 13px;
@@ -2228,7 +2241,9 @@ main {
 @media (max-width: 540px) {
     .internship { padding-top: 48px; }
     .internship-card { margin-top: 28px; border-radius: 21px; }
-    .internship-head { flex-direction: column; gap: 20px; padding: 28px 23px; }
+    .internship-head { position: relative; flex-direction: column; gap: 20px; padding: 28px 23px; }
+    .internship-head > b { position: absolute; top: 28px; right: 23px; }
+    .internship-head p { padding-right: 100px; }
     .internship-head h3 { font-size: 29px; }
     .internship-highlights { grid-template-columns: 1fr; }
     .internship-highlights > div { min-height: 0; padding: 23px; }
