@@ -1465,6 +1465,14 @@ main {
 }
 
 @media (max-width: 540px) {
+    .about-note {
+        display: flex;
+        min-height: 300px;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
     .campus { padding-top: 44px; }
     .campus-grid { gap: 14px; margin-top: 30px; }
     .campus-card,
@@ -1488,6 +1496,88 @@ main {
     .honor-timeline { margin-top: 13px; }
     .honor-item { gap: 10px; padding: 17px 0 17px 19px; }
     .honor-item h4 { font-size: 14px; }
+}
+
+/* Final phone overrides: keep both research actions on one row. */
+@media (max-width: 540px) {
+    .about { gap: 50px; }
+
+    .research-actions {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .research-actions a,
+    .research-toggle { white-space: nowrap; }
+}
+
+.nav-scrim { display: none; }
+
+@media (max-width: 1120px) {
+    .nav-scrim {
+        position: fixed;
+        inset: 63px 0 0;
+        z-index: 19;
+        display: block;
+        width: 100%;
+        height: calc(100dvh - 63px);
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: default;
+    }
+}
+
+/* Final phone overrides: keep both research actions on one row. */
+@media (max-width: 540px) {
+    .about { gap: 50px; }
+
+    .research-actions {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .research-actions a,
+    .research-toggle { white-space: nowrap; }
+}
+
+.nav-scrim { display: none; }
+
+@media (max-width: 1120px) {
+    .nav-scrim {
+        position: fixed;
+        inset: 63px 0 0;
+        z-index: 19;
+        display: block;
+        width: 100%;
+        height: calc(100dvh - 63px);
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: default;
+    }
+}
+
+/* Phone-only spacing and action alignment. */
+@media (max-width: 540px) {
+    .about { gap: 50px; }
+
+    .research-actions {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .research-actions a,
+    .research-toggle { white-space: nowrap; }
 }
 
 @media (min-width: 541px) and (max-width: 900px) {
@@ -2684,7 +2774,15 @@ main {
     .research-card { border-radius: 21px; }
     .research-cover { height: 170px; min-height: 170px; }
     .research-body { padding: 22px 20px; }
-    .research-actions { align-items: flex-start; flex-direction: column; }
+    .research-actions {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    .research-actions a,
+    .research-toggle { white-space: nowrap; }
     .research-body h3 { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
     .research-summary { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
     .research-modal { padding: 14px; }
