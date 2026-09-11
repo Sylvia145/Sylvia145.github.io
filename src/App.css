@@ -2242,8 +2242,8 @@ main {
     .internship { padding-top: 48px; }
     .internship-card { margin-top: 28px; border-radius: 21px; }
     .internship-head { position: relative; flex-direction: column; gap: 20px; padding: 28px 23px; }
-    .internship-head > b { position: absolute; right: 23px; bottom: 28px; }
-    .internship-head p { padding-right: 100px; }
+    .internship-head > b { position: absolute; right: 23px; bottom: 17px; }
+    .internship-head p { white-space: nowrap; }
     .internship-head h3 { font-size: 29px; }
     .internship-highlights { grid-template-columns: 1fr; }
     .internship-highlights > div { min-height: 0; padding: 23px; }
